@@ -10,7 +10,17 @@
   ~
   ~ SPDX-License-Identifier: EPL-2.0 OR Apache-2.0
   ~
-  --><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  -->
+  <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <!-- GCP Artifact Registry -->
+  <distributionManagement>
+    <snapshotRepository>
+      <id>artifact-registry</id>
+      <url>artifactregistry://europe-west4-maven.pkg.dev/fpc-corp/fpc-maven</url>
+    </snapshotRepository>
+  </distributionManagement>
+
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -20,7 +30,7 @@
   </parent>
 
   <artifactId>vertx-core</artifactId>
-  <version>4.3.9-SNAPSHOT</version>
+  <version>4.3.9-FPC-SNAPSHOT</version>
 
   <name>Vert.x Core</name>
 
@@ -38,9 +48,9 @@
   </licenses>
 
   <scm>
-    <connection>scm:git:git@github.com:eclipse/vert.x.git</connection>
-    <developerConnection>scm:git:git@github.com:eclipse/vert.x.git</developerConnection>
-    <url>git@github.com:eclipse/vert.x.git</url>
+    <connection>scm:git:git@github.com:firstpartyclicks/vert.x.git</connection>
+    <developerConnection>scm:git:git@github.com:firstpartyclicks/vert.x.git</developerConnection>
+    <url>git@github.com:firstpartyclicks/vert.x.git</url>
   </scm>
 
   <properties>
@@ -214,7 +224,30 @@
 
   </dependencies>
 
+  <!-- GCP Artifact Registry -->
+  <repositories>
+    <repository>
+      <id>artifact-registry</id>
+      <url>artifactregistry://europe-west4-maven.pkg.dev/fpc-corp/fpc-maven</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
   <build>
+    <extensions>
+      <!-- GCP Artifact Registry -->
+      <extension>
+        <groupId>com.google.cloud.artifactregistry</groupId>
+        <artifactId>artifactregistry-maven-wagon</artifactId>
+        <version>2.2.0</version>
+      </extension>
+    </extensions>
+
     <pluginManagement>
       <plugins>
 

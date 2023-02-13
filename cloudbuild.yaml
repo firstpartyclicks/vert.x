@@ -1,0 +1,5 @@
+steps:
+  - id: deploy
+    name: $_DOCKER_BASE_PREFIX/maven-builder
+    args:
+      - deploy
