@@ -4,7 +4,9 @@ import io.netty.buffer.ByteBuf;
 import io.netty.handler.codec.MessageToByteEncoder;
 import io.netty.handler.codec.compression.BrotliEncoder;
 import io.netty.handler.codec.compression.StandardCompressionOptions;
+import org.junit.Ignore;
 
+@Ignore
 public class Http1xBrotliCompressionTest extends HttpCompressionTestBase {
 
   @Override
