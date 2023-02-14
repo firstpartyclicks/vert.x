@@ -30,7 +30,7 @@
   </parent>
 
   <artifactId>vertx-core</artifactId>
-  <version>4.3.9-FPC-SNAPSHOT</version>
+  <version>4.3.8-FPC</version>
 
   <name>Vert.x Core</name>
 
